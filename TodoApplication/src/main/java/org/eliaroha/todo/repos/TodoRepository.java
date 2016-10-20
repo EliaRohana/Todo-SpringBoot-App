@@ -1,0 +1,24 @@
+/*
+ *  Copyright 2016 ADVA Optical Networking SE. All rights reserved.
+ *
+ *  Owner: erohana
+ *
+ *  $Id: $
+ */
+package org.eliaroha.todo.repos;
+
+import org.eliaroha.todo.model.Todo;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+public interface TodoRepository extends JpaRepository<Todo, Integer> {
+
+//  public Todo findByTodoId(Integer id);
+  List<Todo> findByDescription(String desc);
+
+  List<Todo> findByUser_Id(long userId);
+
+}
